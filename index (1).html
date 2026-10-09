@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayatri — A Page from the Heart</title>
+  <meta name="description" content="A quiet, personal page — for Gayatri." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Mukta:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#fff7f4;
+      --bg2:#fdeee9;
+      --rose:#b8556f;
+      --rose-soft:#d98aa1;
+      --plum:#3a2230;
+      --plum-soft:#6b5460;
+      --gold:#c99a4a;
+      --line:rgba(184,85,111,.16);
+      --shadow:0 20px 45px -24px rgba(120,40,70,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:"Mukta",system-ui,-apple-system,"Segoe UI",sans-serif;
+      color:var(--plum);background:var(--bg);line-height:1.75;font-size:17px;
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    }
+    h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.15;margin:0 0 .5em}
+    p{margin:0 0 1em}
+    a{color:var(--rose)}
+    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+    /* floating hearts layer */
+    #hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .heart{
+      position:absolute;bottom:-40px;font-size:16px;color:var(--rose-soft);
+      opacity:0;animation:rise linear forwards;
+    }
+    @keyframes rise{
+      0%{transform:translateY(0) scale(.8);opacity:0}
+      12%{opacity:.55}
+      100%{transform:translateY(-108vh) scale(1.05);opacity:0}
+    }
+
+    /* hero */
+    .hero{position:relative;z-index:1;text-align:center;padding:110px 24px 80px}
+    .hero::before{
+      content:"";position:absolute;inset:-20% -10% auto -10%;height:70%;
+      background:radial-gradient(55% 60% at 50% 25%,rgba(217,138,161,.35),transparent 70%);
+      z-index:-1;
+    }
+    .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:500;margin-bottom:1.2em}
+    .hero h1{font-size:clamp(2.8rem,9vw,5.2rem);color:var(--plum);margin-bottom:.15em;font-weight:600}
+    .hero .sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.15rem,3vw,1.5rem);color:var(--rose);max-width:26ch;margin:0 auto 1.4em}
+    .divider{width:60px;height:1px;background:var(--gold);margin:26px auto;opacity:.7}
+    .hero .line{font-size:1.05rem;color:var(--plum-soft);max-width:38ch;margin:0 auto}
+
+    /* sections */
+    section.block{position:relative;z-index:1;padding:64px 0}
+    .block.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .tag{letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;color:var(--gold);font-weight:500;margin-bottom:.6em;text-align:center}
+    .block h2{font-size:clamp(1.7rem,4.5vw,2.5rem);text-align:center;color:var(--plum);margin-bottom:.8em}
+    .prose{max-width:60ch;margin:0 auto;text-align:center}
+    .prose p{color:var(--plum-soft);font-size:1.05rem}
+    .quote{
+      font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.25rem,3.4vw,1.7rem);
+      color:var(--rose);text-align:center;max-width:34ch;margin:1.4em auto 0;line-height:1.5;
+    }
+
+    /* about card */
+    .card{
+      background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+      padding:30px;max-width:520px;margin:0 auto;box-shadow:var(--shadow);
+    }
+    .card dl{margin:0}
+    .card .row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px dashed var(--line)}
+    .card .row:last-child{border-bottom:0}
+    .card dt{color:var(--plum-soft);font-size:.92rem;letter-spacing:.02em}
+    .card dt small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+    .card dd{margin:0;text-align:right;font-weight:500;color:var(--rose);font-family:"Cormorant Garamond",serif;font-size:1.2rem}
+
+    /* colours */
+    .swatches{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:12px}
+    .swatch{text-align:center;width:88px}
+    .dot{width:64px;height:64px;border-radius:50%;margin:0 auto 10px;border:2px solid #fff;box-shadow:var(--shadow)}
+    .swatch span{font-size:.82rem;color:var(--plum-soft);letter-spacing:.03em}
+
+    /* wish */
+    .wish{max-width:56ch;margin:0 auto;text-align:center}
+    .wish p{color:var(--plum-soft);font-size:1.06rem}
+
+    /* footer */
+    footer{position:relative;z-index:1;text-align:center;padding:54px 24px;color:var(--plum-soft);font-size:.9rem}
+    footer .mark{font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:var(--rose);margin-bottom:.3em}
+    footer a{color:var(--rose)}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:560px){
+      body{font-size:16px}
+      .hero{padding:80px 20px 60px}
+      .card .row{flex-direction:column;gap:2px}
+      .card dd{text-align:left}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .heart{display:none}
+      .reveal{opacity:1;transform:none;transition:none}
+    }
+  </style>
+</head>
+<body>
+
+  <div id="hearts" aria-hidden="true"></div>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <p class="eyebrow">For Gayatri</p>
+    <h1>Gayatri Mur</h1>
+    <p class="sub">Some feelings never ask for anything back — they only want to be felt.</p>
+    <div class="divider"></div>
+    <p class="line">A page kept quietly, for a feeling kept quietly.</p>
+  </header>
+
+  <!-- ===== The feeling ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <p class="tag">The Feeling</p>
+      <h2>What was never said</h2>
+      <div class="prose">
+        <p>
+          There are people who walk into your life so softly that you only notice them by how
+          different the quiet feels after they arrive. This is a page about one of them.
+        </p>
+        <p>
+          It is not a story with two sides. It is one side — a side that watched, that smiled,
+          that hoped, and that slowly learned to be happy simply because you were happy. No
+          demands, no expectations. Just a feeling that stayed.
+        </p>
+        <p>
+          One-sided love is a strange kind of honest. You give everything and ask for nothing,
+          and somehow that feels complete on its own.
+        </p>
+      </div>
+      <p class="quote">“Kuch rishte naam nahi maangte — bas dil me jagah maangte hain.”</p>
+    </div>
+  </section>
+
+  <!-- ===== About her ===== -->
+  <section class="block alt reveal">
+    <div class="wrap">
+      <p class="tag">About Her</p>
+      <h2>A few things worth remembering</h2>
+      <div class="card">
+        <dl>
+          <div class="row">
+            <dt>Jonmo <small>Birthday</small></dt>
+            <dd>7 July 1993</dd>
+          </div>
+          <div class="row">
+            <dt>Milon Tithi <small>The day our paths crossed</small></dt>
+            <dd>April 2023</dd>
+          </div>
+          <div class="row">
+            <dt>Tair Xaj <small>Favourite colours</small></dt>
+            <dd>Black &amp; white, yellow, red, blue… and many more</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Her colours ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <p class="tag">Tair Xaj</p>
+      <h2>The colours she loves</h2>
+      <div class="swatches">
+        <div class="swatch"><div class="dot" style="background:#1c1c1c"></div><span>Black</span></div>
+        <div class="swatch"><div class="dot" style="background:#ffffff;border-color:#e5d5da"></div><span>White</span></div>
+        <div class="swatch"><div class="dot" style="background:#f2c200"></div><span>Yellow</span></div>
+        <div class="swatch"><div class="dot" style="background:#d6382c"></div><span>Red</span></div>
+        <div class="swatch"><div class="dot" style="background:#2b6bd6"></div><span>Blue</span></div>
+      </div>
+      <p class="quote">…and many more.</p>
+    </div>
+  </section>
+
+  <!-- ===== Wish ===== -->
+  <section class="block alt reveal">
+    <div class="wrap wish">
+      <p class="tag">A Quiet Wish</p>
+      <h2>Wherever you are</h2>
+      <p>
+        This page is not a request. It is not a question waiting for an answer. It is only a
+        place to keep something true — that somewhere, quietly, someone thinks of you and
+        wishes you every good thing in the world.
+      </p>
+      <p>
+        Stay happy, stay exactly as you are. That is all this was ever about.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="mark">♥</p>
+    <p>Made with a quiet heart.</p>
+    <p>&copy; <span id="year">2026</span> · <a href="#top">Back to top</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* gentle floating hearts */
+      var layer = document.getElementById("hearts");
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (layer && !reduce) {
+        var glyphs = ["♥", "♡"];
+        function spawn() {
+          var h = document.createElement("span");
+          h.className = "heart";
+          h.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+          h.style.left = Math.random() * 100 + "vw";
+          h.style.fontSize = (12 + Math.random() * 16) + "px";
+          var dur = 9 + Math.random() * 8;
+          h.style.animationDuration = dur + "s";
+          layer.appendChild(h);
+          setTimeout(function () { h.remove(); }, dur * 1000 + 200);
+        }
+        for (var i = 0; i < 6; i++) setTimeout(spawn, i * 900);
+        setInterval(spawn, 1600);
+      }
+
+      /* reveal on scroll */
+      var items = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.15 });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("in"); });
+      }
+
+      /* footer year */
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
