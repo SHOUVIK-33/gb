@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gayatri — Cheneh · A Prem Kahini by Ayush Chowdhury</title>
+<meta name="description" content="A love story that only grew — an Assamese prem kahini in seven sections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   GAYATRI · CHENEH  —  a prem kahini in seven sections
+   Palette: warm paper, gamosa rose, temple gold.
+   ============================================================ */
+
+:root{
+  --paper:#fdf8f2;
+  --paper-2:#f7ece0;
+  --card:#fffdfa;
+  --ink:#2a1a1e;
+  --ink-dim:#6d565b;
+  --rose:#b3344f;
+  --rose-deep:#7d1f33;
+  --rose-soft:#f6e0e3;
+  --gold:#b3873c;
+  --gold-soft:#f3e6cc;
+  --line:rgba(42,26,30,.12);
+  --line-strong:rgba(42,26,30,.24);
+  --nav-bg:rgba(253,248,242,.88);
+  --shadow:0 22px 44px -30px rgba(70,20,32,.5);
+  --font-display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Karla","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#171012;
+    --paper-2:#221417;
+    --card:#1f1418;
+    --ink:#f7ebe5;
+    --ink-dim:#c3aaa7;
+    --rose:#e58099;
+    --rose-deep:#f2a7b7;
+    --rose-soft:#3a2027;
+    --gold:#d8ad69;
+    --gold-soft:#332a1d;
+    --line:rgba(247,235,229,.13);
+    --line-strong:rgba(247,235,229,.26);
+    --nav-bg:rgba(23,16,18,.88);
+    --shadow:0 22px 44px -30px rgba(0,0,0,.85);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:78px;
+}
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.68;
+  color:var(--ink);
+  background:var(--paper);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* atmospheric background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(62% 42% at 12% -6%, rgba(179,52,79,.12), transparent 72%),
+    radial-gradient(52% 38% at 92% 12%, rgba(179,135,60,.14), transparent 72%),
+    radial-gradient(70% 48% at 50% 104%, rgba(179,52,79,.09), transparent 74%);
+}
+
+img{max-width:100%}
+
+/* ---------- petals canvas ---------- */
+#petals{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:45;
+  pointer-events:none;
+}
+
+/* ---------- navigation ---------- */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--nav-bg);
+  -webkit-backdrop-filter:blur(14px) saturate(1.3);
+  backdrop-filter:blur(14px) saturate(1.3);
+  border-bottom:1px solid var(--line);
+}
+.nav__in{
+  max-width:1140px;
+  margin:0 auto;
+  padding:9px 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.nav__brand{
+  font-family:var(--font-display);
+  font-size:20px;
+  line-height:1;
+  letter-spacing:.01em;
+  white-space:nowrap;
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  text-decoration:none;
+  color:var(--ink);
+}
+.nav__brand small{
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.nav__links{
+  display:flex;
+  gap:1px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  margin-left:auto;
+  padding:2px;
+}
+.nav__links::-webkit-scrollbar{display:none}
+.nav__links a{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  text-decoration:none;
+  padding:7px 9px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition:color .2s,background .2s;
+}
+.nav__links a:hover{color:var(--rose-deep);background:var(--rose-soft)}
+.nav__links a.on{color:var(--rose-deep);background:var(--rose-soft)}
+
+/* ---------- shared ---------- */
+.wrap{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 24px;
+  position:relative;
+  z-index:2;
+}
+.section{
+  position:relative;
+  padding:clamp(64px,9vw,116px) 0;
+  z-index:2;
+}
+.section + .section{border-top:1px solid var(--line)}
+.section__head{max-width:74ch;margin-bottom:clamp(28px,4vw,46px)}
+.section__num{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:14px;
+}
+.section__num::before{
+  content:"";
+  width:26px;
+  height:1px;
+  background:var(--rose);
+  display:block;
+}
+.section__title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(32px,5.2vw,58px);
+  line-height:1.06;
+  letter-spacing:-.01em;
+  margin:0 0 16px;
+}
+.section__title em{font-style:italic;color:var(--rose-deep)}
+.section__lead{
+  font-size:clamp(16px,1.6vw,18.5px);
+  color:var(--ink-dim);
+  margin:0;
+  max-width:64ch;
+}
+.motif{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 auto;
+  max-width:420px;
+  color:var(--gold);
+}
+.motif::before,.motif::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,var(--line-strong),transparent);
+}
+.motif span{
+  width:7px;height:7px;
+  transform:rotate(45deg);
+  background:var(--gold);
+  opacity:.7;
+  flex:none;
+}
+.gamosa{
+  height:11px;
+  background:repeating-linear-gradient(135deg,var(--rose) 0 6px,var(--paper-2) 6px 13px);
+  opacity:.38;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:88px 24px 72px;
+  overflow:hidden;
+  z-index:2;
+}
+.hero__ring{
+  position:absolute;
+  width:min(78vw,760px);
+  aspect-ratio:1;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero__ring::after{
+  content:"";
+  position:absolute;
+  inset:7%;
+  border:1px solid var(--line);
+  border-radius:50%;
+}
+.hero__in{position:relative;z-index:3;max-width:860px}
+.hero__eyebrow{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 22px;
+}
+.hero__title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(62px,15vw,168px);
+  line-height:.92;
+  letter-spacing:-.03em;
+  margin:0;
+}
+.hero__title em{
+  font-style:italic;
+  display:block;
+  font-size:.34em;
+  letter-spacing:.02em;
+  color:var(--rose-deep);
+  margin-top:.16em;
+}
+.hero__asm{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(17px,2.4vw,24px);
+  color:var(--gold);
+  margin:20px 0 0;
+  letter-spacing:.04em;
+}
+.hero__sub{
+  margin:26px auto 0;
+  max-width:44ch;
+  font-size:clamp(15px,1.7vw,18px);
+  color:var(--ink-dim);
+}
+.hero__by{
+  margin:30px 0 0;
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+}
+.hero__cue{
+  position:absolute;
+  bottom:26px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.hero__cue i{
+  display:block;
+  width:1px;
+  height:34px;
+  background:linear-gradient(var(--gold),transparent);
+}
+
+/* ---------- section 1 · photos ---------- */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:24px;
+}
+.photo{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--card);
+  padding:11px 11px 18px;
+  box-shadow:var(--shadow);
+  min-width:0;
+  transition:transform .35s ease,border-color .35s ease;
+}
+.photo:hover{transform:translateY(-5px);border-color:var(--line-strong)}
+.photo__frame{
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:10px;
+  overflow:hidden;
+  background:linear-gradient(155deg,var(--rose-soft),var(--gold-soft));
+  display:grid;
+  place-items:center;
+}
+.photo__frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.photo__ph{
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--rose-deep);
+  opacity:.62;
+  text-align:center;
+  padding:0 14px;
+  line-height:1.9;
+}
+.photo__cap{
+  margin:14px 5px 0;
+  font-family:var(--font-display);
+  font-size:20px;
+  line-height:1.2;
+}
+.photo__txt{
+  margin:6px 5px 0;
+  color:var(--ink-dim);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ---------- section 2 · colours ---------- */
+.swatches{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+}
+.swatch{
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--card);
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  transition:transform .35s ease;
+}
+.swatch:hover{transform:translateY(-5px)}
+.swatch__chip{
+  height:112px;
+  position:relative;
+}
+.swatch__chip::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(135deg,rgba(0,0,0,.055) 0 9px,transparent 9px 18px);
+}
+.swatch__body{padding:15px 18px 20px}
+.swatch__name{
+  font-family:var(--font-display);
+  font-size:21px;
+  line-height:1.2;
+  margin:0 0 2px;
+}
+.swatch__meta{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin-bottom:10px;
+}
+.swatch__txt{font-size:14px;color:var(--ink-dim);line-height:1.6;margin:0}
+
+/* ---------- section 3 · songs ---------- */
+.era{margin-top:clamp(30px,4vw,46px)}
+.era:first-of-type{margin-top:0}
+.era__head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:10px;
+  margin-bottom:6px;
+}
+.era__name{
+  font-family:var(--font-display);
+  font-size:clamp(22px,3vw,30px);
+  margin:0;
+  line-height:1.15;
+}
+.era__note{font-size:14px;color:var(--ink-dim);margin:0;flex:1 1 260px;min-width:0}
+.song{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:14px;
+  padding:15px 0;
+  border-bottom:1px dashed var(--line);
+}
+.song:last-child{border-bottom:none}
+.song__n{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  color:var(--gold);
+  padding-top:7px;
+  letter-spacing:.1em;
+}
+.song__t{
+  font-family:var(--font-display);
+  font-size:21px;
+  line-height:1.28;
+  overflow-wrap:break-word;
+}
+.song__m{color:var(--ink-dim);font-size:14.5px;margin-top:2px}
+
+/* ---------- section 4 · chapters & bubbles ---------- */
+.prelude{
+  border-left:3px solid var(--rose);
+  padding:6px 0 6px 22px;
+  margin:0 0 clamp(30px,4vw,44px);
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(19px,2.4vw,25px);
+  line-height:1.55;
+  color:var(--ink);
+  max-width:60ch;
+}
+.chapter-index{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:14px;
+}
+.chapter-index a{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink-dim);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 11px;
+  transition:.2s;
+  background:var(--card);
+}
+.chapter-index a:hover{color:var(--rose-deep);border-color:var(--rose);background:var(--rose-soft)}
+
+.chapter{margin-top:clamp(52px,7vw,84px);scroll-margin-top:90px}
+.chapter__head{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:12px;
+}
+.chapter__idx{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.24em;
+  color:var(--rose);
+  flex:none;
+}
+.chapter__title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(26px,4vw,42px);
+  line-height:1.08;
+  margin:0;
+  flex:1 1 auto;
+  min-width:0;
+}
+.chapter__asm{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:15px;
+  color:var(--gold);
+  flex:none;
+}
+.chapter__intro{
+  margin:16px 0 26px;
+  max-width:66ch;
+  color:var(--ink-dim);
+  font-size:16.5px;
+}
+.bubbles{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  align-items:flex-start;
+}
+.bubble{
+  flex:1 1 300px;
+  min-width:0;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:22px 22px 24px;
+  border-radius:30px 40px 32px 38px;
+  box-shadow:var(--shadow);
+  transition:transform .35s ease,border-color .35s ease;
+}
+.bubble:nth-child(3n+2){
+  border-radius:42px 28px 44px 30px;
+  background:linear-gradient(165deg,var(--card),var(--paper-2));
+}
+.bubble:nth-child(3n+3){
+  border-radius:28px 44px 30px 42px;
+  background:linear-gradient(165deg,var(--card),var(--rose-soft));
+}
+.bubble:hover{transform:translateY(-5px);border-color:var(--line-strong)}
+.bubble__k{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:9px;
+}
+.bubble__t{
+  font-size:15px;
+  line-height:1.68;
+  margin:0;
+  color:var(--ink);
+  overflow-wrap:break-word;
+}
+
+/* ---------- section 5 · learnings ---------- */
+.learn-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:20px;
+}
+.learn{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--card);
+  padding:24px 24px 26px;
+  box-shadow:var(--shadow);
+  min-width:0;
+  transition:transform .35s ease;
+}
+.learn:hover{transform:translateY(-5px)}
+.learn__n{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--gold);
+  display:block;
+  margin-bottom:12px;
+}
+.learn__t{
+  font-family:var(--font-display);
+  font-size:23px;
+  line-height:1.2;
+  margin:0 0 8px;
+}
+.learn__x{font-size:14.5px;color:var(--ink-dim);line-height:1.65;margin:0}
+
+/* ---------- section 6 · poems ---------- */
+.poems{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:22px;
+  align-items:start;
+}
+.poem{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--rose);
+  border-radius:4px 14px 14px 4px;
+  padding:24px 24px 28px;
+  box-shadow:var(--shadow);
+  min-width:0;
+}
+.poem__title{
+  font-family:var(--font-display);
+  font-size:23px;
+  line-height:1.2;
+  margin:0 0 4px;
+}
+.poem__date{
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+}
+.poem__body{
+  white-space:pre-line;
+  font-size:15.5px;
+  line-height:1.9;
+  color:var(--ink);
+  margin:0;
+  overflow-wrap:break-word;
+}
+.poem__empty{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  opacity:.6;
+}
+
+/* ---------- section 7 · my songs ---------- */
+.tracks{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:20px;
+}
+.track{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:linear-gradient(165deg,var(--card),var(--paper-2));
+  padding:22px 22px 24px;
+  box-shadow:var(--shadow);
+  min-width:0;
+}
+.track__no{
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.2em;
+  color:var(--gold);
+  display:block;
+  margin-bottom:10px;
+}
+.track__t{
+  font-family:var(--font-display);
+  font-size:24px;
+  line-height:1.2;
+  margin:0 0 6px;
+}
+.track__m{font-size:14px;color:var(--ink-dim);line-height:1.6;margin:0}
+.track audio{
+  width:100%;
+  margin-top:14px;
+  height:36px;
+}
+
+/* ---------- footer ---------- */
+.footer{
+  border-top:1px solid var(--line);
+  padding:56px 0 92px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.footer__big{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(24px,3.6vw,34px);
+  margin:0 0 14px;
+  color:var(--rose-deep);
+}
+.footer__t{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin:0;
+}
+.footer__t + .footer__t{margin-top:8px}
+
+/* ---------- music pill ---------- */
+.music{
+  position:fixed;
+  left:16px;
+  bottom:16px;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 15px 7px 7px;
+  border-radius:999px;
+  background:var(--nav-bg);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  border:1px solid var(--line-strong);
+  box-shadow:var(--shadow);
+  max-width:calc(100vw - 32px);
+}
+.music__btn{
+  width:34px;height:34px;
+  flex:none;
+  border-radius:50%;
+  border:none;
+  background:var(--rose);
+  color:#fff;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  padding:0;
+  transition:transform .2s,background .2s;
+}
+.music__btn:hover{transform:scale(1.07)}
+.music__btn svg{width:13px;height:13px;fill:currentColor}
+.music__meta{min-width:0}
+.music__title{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.music__hint{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  letter-spacing:.1em;
+  color:var(--ink-dim);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.music.playing .music__btn{animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- reveal ---------- */
+.js .reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.3,1);
+}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .music.playing .music__btn{animation:none}
+  .photo:hover,.swatch:hover,.bubble:hover,.learn:hover{transform:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:720px){
+  body{font-size:16px}
+  .nav__brand small{display:none}
+  .nav__in{padding:8px 14px;gap:10px}
+  .nav__links a{padding:7px 8px;font-size:9.5px}
+  .wrap{padding:0 18px}
+  .bubble{flex:1 1 100%;padding:20px 19px 22px}
+  .song{grid-template-columns:26px 1fr;gap:10px}
+  .music__title{max-width:150px}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="nav__brand" href="#top">Gayatri <small>cheneh · চেনেহ</small></a>
+    <div class="nav__links" id="navlinks">
+      <a href="#s1">01 Her</a>
+      <a href="#s2">02 Colours</a>
+      <a href="#s3">03 Songs</a>
+      <a href="#s4">04 Prem Kahini</a>
+      <a href="#s5">05 She Taught Me</a>
+      <a href="#s6">06 Poems</a>
+      <a href="#s7">07 My Songs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero__ring" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="hero__eyebrow">An Assamese prem kahini</p>
+    <h1 class="hero__title">Gayatri<em>মাল</em></h1>
+    <p class="hero__asm">চেনেহ · a love that only grew</p>
+    <p class="hero__sub">My prem kahini is not a normal one. It is one which increases my love towards her as it declines.</p>
+    <p class="hero__by">Ayush Chowdhury</p>
+  </div>
+  <div class="hero__cue" aria-hidden="true"><i></i>scroll</div>
+</header>
+<div class="gamosa" aria-hidden="true"></div>
+
+<!-- ================= 01 HER ================= -->
+<section class="section" id="s1">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 01</span>
+      <h2 class="section__title">Her, in <em>pictures</em> and in words</h2>
+      <p class="section__lead" id="s1lead"></p>
+    </div>
+    <div class="photo-grid reveal" id="s1grid"></div>
+  </div>
+</section>
+
+<!-- ================= 02 COLOURS ================= -->
+<section class="section" id="s2">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 02</span>
+      <h2 class="section__title">The colours she <em>wore</em></h2>
+      <p class="section__lead" id="s2lead"></p>
+    </div>
+    <div class="swatches reveal" id="s2grid"></div>
+  </div>
+</section>
+
+<!-- ================= 03 SONGS ================= -->
+<section class="section" id="s3">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 03</span>
+      <h2 class="section__title">The songs I played for <em>her memory</em></h2>
+      <p class="section__lead" id="s3lead"></p>
+    </div>
+    <div id="s3list"></div>
+  </div>
+</section>
+
+<!-- ================= 04 PREM KAHINI ================= -->
+<section class="section" id="s4">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 04</span>
+      <h2 class="section__title">Mur <em>prem kahini</em></h2>
+      <p class="section__lead" id="s4lead"></p>
+    </div>
+    <p class="prelude reveal">I might be a mad, or many may call it a blind love. But whatever I did, it was a call from my eternal soul. My love is not trendy, which is inspired by others — it is unique, and it has no limits. It is true that when we love someone our heart replenishes towards them. But in true love the soul is involved.</p>
+    <div class="chapter-index reveal" id="chapters"></div>
+    <div id="s4body"></div>
+  </div>
+</section>
+
+<!-- ================= 05 LEARNINGS ================= -->
+<section class="section" id="s5">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 05</span>
+      <h2 class="section__title">What I <em>learned</em> from loving her</h2>
+      <p class="section__lead" id="s5lead"></p>
+    </div>
+    <div class="learn-grid reveal" id="s5grid"></div>
+  </div>
+</section>
+
+<!-- ================= 06 POEMS ================= -->
+<section class="section" id="s6">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 06</span>
+      <h2 class="section__title">Mur <em>kobitar</em> prem</h2>
+      <p class="section__lead" id="s6lead"></p>
+    </div>
+    <div class="poems reveal" id="s6grid"></div>
+  </div>
+</section>
+
+<!-- ================= 07 MY SONGS ================= -->
+<section class="section" id="s7">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="section__num">Section 07</span>
+      <h2 class="section__title">The songs I <em>made</em> for her</h2>
+      <p class="section__lead" id="s7lead"></p>
+    </div>
+    <div class="tracks reveal" id="s7grid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="motif" aria-hidden="true" style="margin-bottom:26px"><span></span></div>
+    <p class="footer__big">Though I will not be able to get her,<br>that doesn't mean I will stop loving her.</p>
+    <p class="footer__t">Gayatri · Cheneh · A Prem Kahini</p>
+    <p class="footer__t">Written, lived and remembered by Ayush Chowdhury</p>
+  </div>
+</footer>
+
+<!-- ================= MUSIC ================= -->
+<div class="music" id="music">
+  <button class="music__btn" id="musicBtn" aria-label="Play or pause music">
+    <svg viewBox="0 0 24 24" id="musicIcon"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+  <div class="music__meta">
+    <span class="music__title" id="musicTitle">Mon Jai — Zubeen Garg</span>
+    <span class="music__hint" id="musicHint">tap to play</span>
+  </div>
+</div>
+<audio id="bgm" loop preload="auto"></audio>
+<script>
+/* ================================================================
+   GAYATRI · CHENEH
+   ----------------------------------------------------------------
+   BHAI, EDIT KARNE KE LIYE SIRF YEH FILE ME NEECHE DIYE GAYE
+   CONST BLOCKS KO CHHUNA HAI. Baaki sab code khud handle kar lega.
+
+     1. MUSIC_SRC   -> Mon Jai gaana ka file name
+     2. SECTION_1   -> Her (pictures + words)
+     3. SECTION_2   -> The colours she wore
+     4. SECTION_5   -> What she taught me
+     5. SECTION_6   -> Poems (Mur kobitar prem)
+     6. SECTION_7   -> Songs I made for her
+
+   SECTION_3 (songs) aur SECTION_4 (prem kahini) already bhar diye
+   gaye hain — chaho to wahan bhi edit kar sakte ho.
+
+   IMAGES: apni photos is HTML file ke saath wale folder me rakho
+   (jaise gayatri1.jpg) aur card me img: "gayatri1.jpg" likh do.
+   ================================================================ */
+
+/* ---------------- 0 · MUSIC ---------------- */
+const MUSIC_SRC = "mon-jai.mp3";            /* gaana isi folder me rakho */
+const MUSIC_TITLE = "Mon Jai — Zubeen Garg";
+const MUSIC_VOLUME = 0.65;
+
+/* ================================================================
+   SECTION 1 · HER  —  pictorial description
+   Har card: { img, title, text }
+   img khali chhodo to elegant placeholder dikhega.
+   ================================================================ */
+const SECTION_1 = {
+  lead: "Some faces you see, and some faces you keep. Hers I kept — in corridors, in windows, in poems, in songs. Here she is, in the little details my eyes learned by heart.",
+  cards: [
+    {
+      img: "",
+      title: "Her eyes",
+      text: "The first thing that ever stopped me. Her eyes only reminded me of her — even when she looked at the place where I was, and not at me."
+    },
+    {
+      img: "",
+      title: "The mole on her nose",
+      text: "She had a mole on her nose. And I too have it. That is when I first felt she was not a stranger — she was a similarity."
+    },
+    {
+      img: "",
+      title: "In white",
+      text: "9 October. She wore white and sat beside the teacher who took my oral, and she did not even notice me. I came and sat ideally — and wrote three poems looking at her."
+    },
+    {
+      img: "",
+      title: "In blue",
+      text: "11 October. She wore blue. I reached school first and waited forty-five minutes for her. In the whole school she was looking the most beautiful — and she was happy, so I was too."
+    },
+    {
+      img: "",
+      title: "Mekhela sador, ITA Machkhowa",
+      text: "November, the biennial function. Her mekhela sador, her purse, her gestures — only what I followed the whole evening."
+    },
+    {
+      img: "",
+      title: "The way she walked",
+      text: "Talk only when necessary. Every step she used to give, I observed. That is how I found the name for her: MAL — most ambivert lady."
+    }
+  ]
+};
+
+/* ================================================================
+   SECTION 2 · THE COLOURS SHE WORE
+   Har colour: { name, hex, meta, text }
+   ================================================================ */
+const SECTION_2 = {
+  lead: "Some days I remember by date. Some days I remember only by the colour she came in. This is that little wardrobe of memory.",
+  colors: [
+    {
+      name: "White",
+      hex: "#f4efe6",
+      meta: "9 October · the oral exam",
+      text: "She sat beside the teacher who took my exam. White, quiet, and completely unaware of me."
+    },
+    {
+      name: "Blue",
+      hex: "#2f5d8c",
+      meta: "11 October · result day",
+      text: "I reached school first, waited forty-five minutes, and she came in blue. The most beautiful in the whole school that day."
+    },
+    {
+      name: "Mekhela sador",
+      hex: "#b3344f",
+      meta: "November · ITA Machkhowa",
+      text: "The biennial function. Her mekhela sador, her purse, her gestures — the only thing I followed that evening."
+    },
+    {
+      name: "Add a colour",
+      hex: "#e6d3b3",
+      meta: "add date · add hex",
+      text: "Write here which colour she wore that day, and what that day was."
+    },
+    {
+      name: "Add a colour",
+      hex: "#c9d3c2",
+      meta: "add date · add hex",
+      text: "Write here which colour she wore that day, and what that day was."
+    },
+    {
+      name: "Add a colour",
+      hex: "#d9c2d4",
+      meta: "add date · add hex",
+      text: "Write here which colour she wore that day, and what that day was."
+    }
+  ]
+};
+
+/* ================================================================
+   SECTION 3 · THE SONGS I PLAYED FOR HER MEMORY
+   Har era: { name, note, songs:[{ t, m }] }
+   ================================================================ */
+const SECTION_3 = {
+  lead: "I did not choose these songs. They arrived with her, and then they stayed with her. Some I heard for years before I understood a single line — and then one day I fell in love, and every line understood me.",
+  eras: [
+    {
+      name: "2023 · when it began",
+      note: "The first songs that found me on the day I found her.",
+      songs: [
+        { t: "Pritir Xubaxe Dhuwaei Dilehi", m: "The very first song that took me, after seeing her for the first time." },
+        { t: "Junak Gola", m: "I had heard it before. I understood its meaning only when I fell into love." },
+        { t: "Junake Kane Kane", m: "The same — a song that waited years for me to grow up to it." },
+        { t: "Aane Juwa Bate", m: "Heard casually at first. Later it was not casual at all." },
+        { t: "Amanixa", m: "One of the songs that taught me what longing sounds like." },
+        { t: "Maya", m: "Maya — the word I finally understood after her." }
+      ]
+    },
+    {
+      name: "2024 · the distance",
+      note: "The year I tried to look away, and the songs did not let me.",
+      songs: [
+        { t: "Bhulotu Nasaba Tumi", m: "Whenever I saw her, this one started vibrating through my mouth — without my permission." },
+        { t: "Mon Jai", m: "Every single line reminded me of her. But I resisted myself every time." },
+        { t: "Mon Jai O Bor Mon Jai", m: "The film that showed me what love is. Its love angle is accurately similar to my story." }
+      ]
+    },
+    {
+      name: "Late 2024 – early 2025 · the reunion",
+      note: "The oral exams brought her back in front of me, and these came with her.",
+      songs: [
+        { t: "Dure Dure", m: "The songs I heard a lot then, when I started going down only to see her." },
+        { t: "Aaina Bhonga Di", m: "Same days, same loop, same window." },
+        { t: "Nohole Porichoy Hiyare", m: "A song about not being known — I understood that one from the inside." },
+        { t: "Runjun Nupure Mate", m: "The sound of her anklets, in a song." },
+        { t: "Bedona Bedona Mur Bhalpua Tumak Heruwai Bathor Hiya", m: "Now I understood the meaning of that line — and I wished I had not." }
+      ]
+    },
+    {
+      name: "2025–26 · the final year",
+      note: "The year I got addicted to her in a more deeper way.",
+      songs: [
+        { t: "Monore Priya Mur", m: "The second floor, the stairs, the exact break-time — and this song underneath all of it." },
+        { t: "Hiyare Lakhimi", m: "Played while hiding behind the bus, behind the tree, just staring at her." },
+        { t: "Mur Xuriya Geet (album)", m: "The whole album. I lived inside it that year." }
+      ]
+    },
+    {
+      name: "19 September 2025 · the last day with him",
+      note: "The day I sang his songs in the morning and lost him by the evening.",
+      songs: [
+        { t: "Kune Ringiyai", m: "I sang it as I entered the exam hall, before the Hindi half yearly." },
+        { t: "Protidine Tumi", m: "A friend joined me at the window pane, and we sang it together." },
+        { t: "Xagor Tolit Xubore Mon", m: "Who knew that this line was going to be true." }
+      ]
+    }
+  ]
+};
+
+/* ================================================================
+   SECTION 4 · MUR PREM KAHINI  (already filled, edit if you like)
+   Har chapter: { id, asm, title, intro, bubbles:[{ k, t }] }
+   ================================================================ */
+const SECTION_4 = {
+  lead: "Nine chapters, in the order they happened — from a corridor in April 2023 to a heart that still keeps only one name. Nothing left out, nothing made lighter.",
+  chapters: [
+    {
+      id: "ch1", asm: "পৰিচয়", title: "Porichoy — the first sight",
+      intro: "The year 2023. April. Sunny weather. This is where it begins — in a corridor, in a second, in a heartbeat.",
+      bubbles: [
+        { k: "April 2023 · the corridor", t: "I still remember the first time I saw Gayatri in the corridor. The moment my heartbeats rose and I was stunned. Nothing was planned, nothing was asked for. It simply happened." },
+        { k: "The next day", t: "The next day I too waited for her — to see her, to get her glance. One day was not enough. It was already becoming a habit of the soul." },
+        { k: "Not lust — devotion", t: "My love was not lust, it was true devotion for her. After her I did not find any girl in the universe as beautiful as her." },
+        { k: "Following, quietly", t: "Days passed. When she used to move, I would follow her — not knowing her about my love, but just to get her attention. But still, neither time she noticed me. Indeed, my love got deeper." },
+        { k: "The days she was absent", t: "The days she remained absent were like obscurity for me. A fog over everything, and nothing in focus." },
+        { k: "Zubeen Da, in her absence", t: "Whenever I was not close to her, I used to listen to Zubeen Da's songs and feel her presence. ZG is the reason I am not a complete mad, but a mad for her, in her love." },
+        { k: "Blood on my own hand", t: "Sometimes I used to cut my hand and write her name with my raw blood. That sounds crazy. But it is true." },
+        { k: "Five classes in one year", t: "There were only a few classes she used to take as a substitute. In the 2023–24 session it was only 5 classes. Still, my encounter with her was regular — corridor, stairs, passing." },
+        { k: "Losing hope, gaining love", t: "Many times I even lost my hope and tried to leave her. But a little farness from her deepened my love more. My friends too suggested me to move on from her — but now I realise that true love has no move-ons." }
+      ]
+    },
+    {
+      id: "ch2", asm: "মোৰ প্ৰথম প্ৰেম", title: "Mur prothom prem — my first love",
+      intro: "I was never a boy who fell into love. And no girl ever dared to speak to me.",
+      bubbles: [
+        { k: "A serious boy", t: "Naturally I was not into love, neither any of the girls dared to speak to me. Since early days my behaviour had been very serious to girls. I got many proposals till now — and I ignored them." },
+        { k: "KK Sir and Zubeen Da", t: "My heart bet only on the voices of KK Sir and Zubeen Da's songs. Their songs kept me alive, both mentally and physically." },
+        { k: "31 May 2022", t: "On 31 May 2022 KK Sir passed away. That was a poisoned day for me." },
+        { k: "March 2023 · class 8", t: "Then I found my first love in March 2023. That time I was in class 8." },
+        { k: "The first song", t: "After seeing her, the first song that took me was 'Pritir Xubaxe Dhuwaei Dilehi'. I told all my friends. They were shocked — and at the same time humoured." },
+        { k: "'Andha pyar'", t: "As days passed and I went deeper into her love, they believed that I am a mad in her love. Some said 'andha pyar' — hence proved." },
+        { k: "Meaning, only after her", t: "'Junak Gola', 'Junake Kane Kane', 'Aane Juwa Bate', 'Amanixa', 'Maya' and many songs I heard — but I could understand the meaning only when I fell into love." },
+        { k: "Friends with exes, me with a mindset", t: "Many of my friends had girlfriends and exes — some 10, 20, 30. They would instigate me to open Instagram and chat with the girls, as they do. But I had only one mindset: I am ready for true love, but I would not receive true love." },
+        { k: "Instagram, only for her", t: "I have an Instagram account only to see Gayatri. Though her profile is private, I message her to follow me back. Never she replied me. Still today I try, so that someday she sees the message and replies back. But still, hope persists." },
+        { k: "MAL — most ambivert lady", t: "'Ki Naam Di Matim' was on trend during that time. So I also gave her a name: MAL, most ambivert lady. Every step she used to give, I observed her. I found she was very similar to me — talk only when necessary. So she was a MAL. My friends also became familiar with the name." },
+        { k: "The mole on her nose", t: "Another similarity was that she had a mole on her nose. And I too have it." },
+        { k: "The top-floor Hindi class", t: "Our Hindi class was held at the top floor, and the next class was hers. I used to wait for her till she came out, with one of my friends, just acting to have some serious talks. Rarely she noticed me then. As she went down, two stairs up, we would also follow her." },
+        { k: "Her heel, my foot tip", t: "Once my foot tip got collided with the heel of her shoe. For a second she looked back. I too said sorry. But then too she just ignored me and moved forward." }
+      ]
+    },
+    {
+      id: "ch3", asm: "কিছু দিনৰ দূৰত্ব", title: "Kisu dinor durotvo — some days of distance",
+      intro: "March 2024 — my Upanayan. I was Brahmin now. And I tried, honestly, to look away.",
+      bubbles: [
+        { k: "Upanayan · March 2024", t: "March 2024, I had my Upanayan ceremony, and I was Brahmin now. So I got deeply involved in spirituality and started focusing on my academics — and I did so." },
+        { k: "Class 9 · 2024–25", t: "Then the 2024–25 session started for class 9. I tried my best to avoid Gayatri's thoughts, and I got a little detached from her, as she remained mostly on the top floor and I on the first floor." },
+        { k: "Everything near, except her", t: "Maximum I lived in the classroom only and talked with friends. Everything was near to me except her." },
+        { k: "Still, ZG", t: "I heard ZG's songs and felt her presence." },
+        { k: "'I could not persist me'", t: "But rarely, when she passed by, I could not persist me. Every resistance broke in that one second." },
+        { k: "Elections 2024", t: "I was very concentrated on the Lok Sabha elections of 2024. Whether BJP will win or not — that haunted me. June 2024 came, the results came, and I took a breath." },
+        { k: "Separated from more than her", t: "I was not only separated from her, but also from my exercise and my love for music." },
+        { k: "'Bhulotu Nasaba Tumi'", t: "But whenever I saw her, 'Bhulotu Nasaba Tumi' started vibrating through my mouth." },
+        { k: "Mon Jai, o bor Mon Jai", t: "Every line of 'Mon Jai' reminded me of her. But I resisted me every time. I thought only about JEE and IIT — nothing was on my mind more." }
+      ]
+    },
+    {
+      id: "ch4", asm: "পুনৰ মিলন", title: "Punor milon — the reunion",
+      intro: "Our half yearly arrived and I was well prepared. In the last of September we had oral examinations — and the English oral was taken by her.",
+      bubbles: [
+        { k: "End of September · the oral", t: "The English oral was taken by her. Her eyes, earrings, hair, face — everything I loved came again in front of me. And next, what? My love revived." },
+        { k: "Another level", t: "But this time it got into another level. When I slept I thought of her. When I woke up — everywhere." },
+        { k: "Going down, only to see her", t: "I even tried to get her rare moments when she came. I started going down only to see her, sometimes through the window — maybe she sees me." },
+        { k: "One friend who knew", t: "That time I did not expose that I love her. I just said it to one friend who has understood my true love till date and always motivates me." },
+        { k: "Four songs on repeat", t: "'Dure Dure', 'Aaina Bhonga Di', 'Nohole Porichoy Hiyare', 'Runjun Nupure Mate' — the songs which I heard a lot then." },
+        { k: "'Bedona Bedona...'", t: "'Bedona Bedona Mur Bhalpua Tumak Heruwai Bathor Hiya' — I understood the meaning of that line now." },
+        { k: "November · ITA Machkhowa", t: "In November we had the biennial function of school at ITA Machkhowa. Gayatri was the most beautiful there. Her mekhela sador, purse and gestures — only what I followed." },
+        { k: "Two awards, no glance", t: "Then I got two awards, my name was called — but she did not look at me. She was busy in her phone. That was very disappointing for me." },
+        { k: "The more she ignored", t: "Still I am a boy who is not demotivated by failures but inspired and enthusiastic. So the more she ignored, the more my love deepened. Love is not what lets you degrade yourself but upgrade. I did so." },
+        { k: "Her eyes at my place", t: "Maybe after that there was some development in her reactions towards me. Accidentally she saw the place where I was, but not towards me. Her those eyes only reminded me of her." },
+        { k: "Jan–Feb 2025 · the worksheet", t: "In January or February of 2025, the only time she entered our class, and gave a worksheet on transformation of sentences. I was the first boy to show my copy. I just put my head down and saw her — but she again did the same and went away." },
+        { k: "The candle and the wax", t: "After that I did another thing. I took a candle and lit it up, then drop by drop I started pouring the wax on my hand. My hand got blisters, and they stayed for 3 months." },
+        { k: "Annual exams, then a vacation", t: "The annual exams started and I performed well. Then I went for a vacation." }
+      ]
+    },
+    {
+      id: "ch5", asm: "অন্তিম বছৰ", title: "Antim bosor — the final year",
+      intro: "This is my last year as a student in the school. And I got a new mood — I started writing poems for Gayatri.",
+      bubbles: [
+        { k: "The last year", t: "This is my last year as a student in the school. After returning from vacation our school started. I got a new mood. I started writing poems for Gayatri." },
+        { k: "One poem per situation", t: "Till now I have written many, based on each situation, how I saw her. Some of the best are there in the Mur Kobitar Prem section. In my poetry I have only written what I feel after doing true love." },
+        { k: "The next building", t: "Our class was shifted to the next building. There too I would stare at the window when she comes, or when she climbs the stairs. But again, for some discrepancy, it was brought back to the first floor." },
+        { k: "Second floor, two classes", t: "In the 2025–26 session she remained on the second floor only, so very frequently I could see her. Also she takes two classes on the same floor. Every time she passes through, I see her and follow her too. But her behaviour persists." },
+        { k: "Break time, exact minute", t: "During the break time, every day I would go at the exact time when she climbs the stairs to the first floor, so that I could get an encounter with her." },
+        { k: "GAYATRI, in the rough copy", t: "During the class too, though I was concentrated towards studies, in my rough copy I would write relentlessly her name — GAYATRI." },
+        { k: "Behind the bus, behind the tree", t: "Many times she stopped at the ground to talk with students. I would hide behind the bus or tree and just stare at her." },
+        { k: "Deeper, again", t: "I again got addicted to her in a more deeper way with songs like 'Monore Priya Mur', 'Hiyare Lakhimi', the 'Mur Xuriya Geet' album and many more." },
+        { k: "The debate · Artificial Intelligence", t: "A debate competition was organised at our school and I participated in that because it included Gayatri as one of the judges. The topic was Artificial Intelligence. I spoke on how much I knew on the subject. But my oratory was not well enough, I think — and that is the reason I was not selected for the second round. But I was happy because I got to see Gayatri, and she also noticed me when I was speaking." },
+        { k: "The second unit test", t: "Our second unit test had the only oral exam for English Literature and English Grammar. Here is where I find the essence and power of my love. In the first oral, she took the 1st group and another teacher took the 2nd group — fortunately I was in the 1st group." },
+        { k: "Only me, from the first group", t: "In the second oral she was supposed to take the 2nd group, but she took only me from the first group. Many said that since I was in the first group in the first oral, it is not coincidental. But it was my pure love which let this happen." },
+        { k: "The same situations again", t: "After one month the summer vacation was over and again the same situations continued." },
+        { k: "September · studying with her in my heart", t: "In September it was half yearly exams with no orals, but I studied taking her thoughts in my heart." },
+        { k: "Everyone knew", t: "Till September each one was aware that I loved Gayatri, and also that I am mad in her love. Everyone said to me to leave her, because there were many proposals which came through some of my friends. So they suggested me such. But I was still at my mindset as earlier." },
+        { k: "18 September 2025", t: "Our half yearly started from 18 September." },
+        { k: "19 September 2025", t: "And on 19 September 2025, I got my heart beat stop." }
+      ]
+    },
+    {
+      id: "ch6", asm: "জুবিন দা", title: "Zubeen Da, tumi kiyo gola?",
+      intro: "Everyone is aware who Zubeen Garg is. But for me he was my God — and the reason my love for Gayatri ever woke up.",
+      bubbles: [
+        { k: "My God", t: "Everyone is aware who Zubeen Garg is. But for me he was my God. His songs were those which supported me in my every situation. Whatever his song may be, it has some values embedded in it." },
+        { k: "The reason for my love", t: "Today I love Gayatri, or my love evoked for Gayatri, only because of his songs." },
+        { k: "Nursery, and class 8", t: "He said he fell in love in nursery. I was a little late." },
+        { k: "A casual feeling, at first", t: "When I listened to his songs it was just a casual feeling. I did not understand the meanings, and even my Assamese vocabulary was not developed much at that age. But when I fell in love with Gayatri, I realised what love is." },
+        { k: "Forty thousand songs", t: "He sang over 40,000 songs. How far I have heard are maybe 1,500 songs till 2026, in all languages." },
+        { k: "Mon Jai, the movie", t: "I saw the movie Mon Jai, and I understood what love meant. Its love angle is accurately similar to my story." },
+        { k: "Forbidden by my situation", t: "I want to tell Gayatri that I love her, but every time I am forbidden by my situation. As a student in a school I am not able to do that. However much I listen to Dada's songs, every song fascinates me." },
+        { k: "19 September 2025 · Hindi half yearly", t: "19 September 2025, a cursed day for me and for Assamese people. That day was my half yearly exam of Hindi. I was well prepared and I went to give the exam. As I entered I sang his song 'Kune Ringiyai', and since there was time, I sat at the window pane and started singing." },
+        { k: "'Protidine Tumi'", t: "One of my friends joined me and we started singing 'Protidine Tumi'. But who knew that the line 'Xagor Tolit Xubore Mon' was going to be true." },
+        { k: "1 PM to 4 PM", t: "I sat for the exam at 1 PM. It ended at 4 PM. I was happy and moved out." },
+        { k: "'Sir said...'", t: "Suddenly a friend approached me and said that sir said that Zubeen Da is no more. I was shocked and my spine chilled." },
+        { k: "Home, without a word", t: "I just went home without uttering a word. First I was going to check the mobile for any news. But before I could open it, I was resisted to have lunch. After lunch I opened the phone and saw that ZG is no more. I fell on the bed at that moment and was totally unconscious. At the same time I got fever and cold." },
+        { k: "Still not able to believe", t: "Still I am not able to believe that he is no more. But that's truth, and I had to accept it." }
+      ]
+    },
+    {
+      id: "ch7", asm: "মোৰ আশা, মাথোঁ বিয়োপাই নিৰাশা", title: "Mur asha, mathu biyopai nirasha",
+      intro: "Assam was recovering from the loss of Zubeen Garg. Durga Puja had started. But this was the worst for me.",
+      bubbles: [
+        { k: "Durga Puja, the worst", t: "Assam was recovering from the loss of Zubeen Garg and Durga Puja started, but this was the worst for me. I just sat in the local pandal and operated Zubeen Da's songs. I was not able to recover, and only sang his songs." },
+        { k: "7 October · school reopened", t: "Our school reopened on 7 October, with oral exams. The days I and my friends sang non-stop Zubeen Garg's songs." },
+        { k: "9 October · white", t: "On 9 October there were English exams. I was excited enough because I thought Gayatri would take mine. But unfortunately mine was taken by another teacher and Gayatri took of section A. She was just sitting beside the one who took mine, but she didn't even notice me. She was wearing white. I just came and sat ideally." },
+        { k: "Three poems, on the spot", t: "On the spot I wrote 3 poems for her, just looking at her from the window. This is the impact of her in my life." },
+        { k: "11 October · blue", t: "On 11 October our results were given. She wore blue that day. To see her I reached school at first, then waited for her. After 45 minutes she came. In the whole school she was looking the most beautiful. She was happy and I too. Even I did not do good, but I was satisfied because I saw her." },
+        { k: "The most poems of my journey", t: "That period I was very involved in writing poems. The ones I wrote I used to show them to my friends. They reacted, and were also surprised to see how I wrote so many poems. In that whole month I wrote the most poems in my prem journey." },
+        { k: "Ten OMR exams, no invigilation", t: "During this time we had our OMR exams after every single day. Every day I hoped that Gayatri would come for invigilation, but she did not. 10 exams were over but she didn't come. One day she came, but in the next room." },
+        { k: "The door, and the stare", t: "I don't know what would happen if she came to our class. My friends in that room were teasing me, but I was getting impatient. When she was going down, I was standing at the door staring at her. And she was being very humorous with the juniors, and ignorant to me, as if she does not know me. I want to approach her, but I can't." },
+        { k: "Beating the walls", t: "After she was gone, I became mad — beating on the walls, benches, shouting out slangs. My friends were there, but they went away." },
+        { k: "What love is", t: "One of my friends asked me that he does not understand what love is. I said to him: love is something which is from the heart. Love asks no demands. It only needs a heart to do it. I had that and I did it, but couldn't get her." },
+        { k: "Assamese, Hindi, Bengali", t: "Wherever I went, I only wrote poems — in Assamese, Hindi, Bengali." },
+        { k: "14 November · Children's Day", t: "It was 14 November, Children's Day. No classes were held that day. So I decided to write 7 poems — I wrote only 5. That day we watched the movie Srikant with my friends online. It was fun." },
+        { k: "19 November · 10A, 10C, not 10B", t: "On 19 November Gayatri had 2 periods off. I thought she would come to our class. But again my fate — she went to class 10A and 10C, but didn't come to 10B. I was again becoming mad and crazy. It was intolerable. I thought to just go and say her that I love her." },
+        { k: "The quiz in the auditorium", t: "The next day we had a quiz in the auditorium. Gayatri was present there, felicitating the guests. I required nothing more than that. What will I look at the questions when she was there for me. I was happy, but also sad, because she just did not want to see me." },
+        { k: "Why I love her, I don't know", t: "Why I love her I don't know. What I will get from her is unknown. But I will love her." },
+        { k: "A wall between us", t: "Then it was the time for Olympiad exams, and I thought that she would come to invigilate. In the IEO test she came, but not in our class — in the next class. What was between us was just a wall. Again in the IMO test she came, but in the room which was just in front of me. I could just see her, but not feel her presence." },
+        { k: "'Kakhot Ahiyu Tumi Usorot Naha'", t: "Then I wrote the poem 'Kakhot Ahiyu Tumi Usorot Naha'. She watches me, but I don't understand why she ignores." },
+        { k: "The class 9 humour", t: "Maybe I am the first one to do such things. She shared a very good humour with the class 9 students, because they would talk in English and in an amiable way with her. But I was a reserved and serious guy, and it's my character. So I, till today, did not even approach her. I would keep staring at her. She also had a glance, but ignored again." }
+      ]
+    },
+    {
+      id: "ch8", asm: "অন্তিম মাহ", title: "Antim mah — the final month",
+      intro: "December. The month of last classes, last shirts, last orals — and two more poems written on the spot.",
+      bubbles: [
+        { k: "11 December · last regular classes", t: "The month December would be remembered by me always. On 11 December we had our last regular classes. Everyone was writing in each other's shirt. Many from class 10 and 9 wrote too in my shirt. They wrote only about Gayatri — and nothing else." },
+        { k: "13 December · the English oral", t: "On 13 December we had our English orals. I had high hopes that Gayatri would take the oral, but again the same happened. She didn't take mine, but took that of 2 students from my section only. I don't know why this happens only with me." },
+        { k: "Two poems, again on the spot", t: "Then I wrote 2 poems on the spot. She entered our class, but for just a while." },
+        { k: "Crazy, and will remain", t: "All my friends were more crazy than me. But I am crazy, and will remain such for her." }
+      ]
+    },
+    {
+      id: "ch9", asm: "মোৰ প্ৰেম কাহিনীৰ অন্ত", title: "Mur prem kahinir onto — the end, and a beginning",
+      intro: "Boards, results, a felicitation, and a heart that still keeps only one name. Just like Mon Jai, my story also ends here with an unsuccessful end.",
+      bubbles: [
+        { k: "Pre-boards, then Magh Bihu", t: "After the pre-boards I was totally engaged in my studies and preparing for my boards. But during Magh Bihu I wrote some Bihugeets. After that I again completed my test papers and other stuff." },
+        { k: "10 February 2026 · HSLC begins", t: "10 February 2026 — our HSLC exams started. I thought about her and gave my exams. Then on 26 February they were over." },
+        { k: "The illusion", t: "During that period I would think of her, but I didn't write any poems. Gradually I was realising that I was captivated in a world of illusion and nothing else. I thought to make possible a thing which was already impossible, which had zero probability, as said by my friends earlier — but I just ignored their words. Now I was slowly trying to forget her." },
+        { k: "91.67%", t: "My HSLC results came out and I scored 91.67%. After that I was satisfied, but not happy. Then I went to Maa Kamakhya Mandir and many other places. Also I am admitted to Cotton University for my HS." },
+        { k: "2 May 2026 · the felicitation", t: "Then comes 2 May 2026, when we were felicitated by our school and we received our marksheets. During my felicitation, there was no reaction expressed by Gayatri — like during my class 9 felicitation. But now I am not so disappointed. I am now known to the reality." },
+        { k: "Maybe the last day", t: "Maybe this would be the last day when I am seeing her. But still, a feeling would always be in my heart: if I had told her about my love, maybe something would make out — maybe she could talk with me, at least after hearing my efforts. Her glance on me is more than enough for me, but who knows what the consequences may be." },
+        { k: "The one regret", t: "I am sad only because I was not that courageous to speak to her about my love." },
+        { k: "Like Mon Jai", t: "Just like Mon Jai, my story also ends here with an unsuccessful end. Like Manab was never able to confess his love to Meghali, I too." },
+        { k: "A new beginning", t: "And a new beginning, where I could again reframe myself. Since more than 3 years I was in a thoughtful and unrealistic world. I have faced a lot of hardships and distractions. A boy who has got exposure to a wide range of things in college — maybe now I think that I am free, but I have to keep myself with dignity. I am doing the things which I sometimes just dreamt of. All of the dreams are not yet fulfilled, but some I have experienced." },
+        { k: "23 August 2026", t: "Today the date is 23 Aug 2026, and still in my heart there is place only for Gayatri. Though I will not be able to get her, that doesn't mean I will stop loving her. I write poems for Gayatri Maam still, and I have also composed some songs for Maam." }
+      ]
+    }
+  ]
+};
+
+/* ================================================================
+   SECTION 5 · WHAT SHE TAUGHT ME
+   Har card: { title, text }
+   ================================================================ */
+const SECTION_5 = {
+  lead: "She never taught me in a classroom. Everything I know about love, patience and dignity, I learned in a corridor, from a girl who never even knew I was learning.",
+  items: [
+    { title: "True love has no move-ons", text: "My friends told me to move on. I tried. Every attempt took me closer instead. Now I know: real love does not have a move-on option." },
+    { title: "Love upgrades you, it does not degrade you", text: "Love is not what lets you degrade yourself but upgrade. So the more she ignored me, the more I studied, wrote, and built myself." },
+    { title: "Love asks no demands", text: "Love is something which is from the heart. It asks no demands. It only needs a heart to do it. I had that heart, and I did it." },
+    { title: "Patience is a form of love", text: "Waiting forty-five minutes outside a school gate, going down at the exact minute she climbs the stairs — patience stopped feeling like waiting." },
+    { title: "Silence can be devotion", text: "I never spoke to her. Not once. And still, three years of my life are written in her name. Silence, it turns out, can hold a whole love story." },
+    { title: "Add your own", text: "Write here what else she taught you — one line, or one paragraph." }
+  ]
+};
+
+/* ================================================================
+   SECTION 6 · POEMS  (Mur kobitar prem)
+   Har poem: { title, date, body }  — body me line breaks chalti hain
+   ================================================================ */
+const SECTION_6 = {
+  lead: "I have written many poems, each one based on a situation, each one on how I saw her that day. Some are here. In my poetry I have only written what I feel after doing true love.",
+  poems: [
+    {
+      title: "Kakhot Ahiyu Tumi Usorot Naha",
+      date: "2025",
+      body: ""
+    },
+    { title: "Add a poem", date: "date", body: "" },
+    { title: "Add a poem", date: "date", body: "" },
+    { title: "Add a poem", date: "date", body: "" }
+  ]
+};
+
+/* ================================================================
+   SECTION 7 · SONGS I MADE FOR HER
+   Har track: { title, note, audio }  — audio optional (file name)
+   ================================================================ */
+const SECTION_7 = {
+  lead: "I am not a singer. But some feelings refuse to stay inside a poem, so they came out as songs — written for her, composed for her, sung for her.",
+  tracks: [
+    { title: "Add a song", note: "Write the song name, when you wrote it, and one line about it.", audio: "" },
+    { title: "Add a song", note: "Write the song name, when you wrote it, and one line about it.", audio: "" },
+    { title: "Add a song", note: "Write the song name, when you wrote it, and one line about it.", audio: "" }
+  ]
+};
+
+/* ================================================================
+   NEECHE KA CODE — normally chhune ki zaroorat nahi
+   ================================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const el = (tag, cls, html) => {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (html !== undefined) n.innerHTML = html;
+  return n;
+};
+
+/* ---- section 1 ---- */
+$("#s1lead").textContent = SECTION_1.lead;
+const g1 = $("#s1grid");
+SECTION_1.cards.forEach((c, i) => {
+  const card = el("article", "photo");
+  const frame = el("div", "photo__frame");
+  if (c.img) {
+    const img = el("img");
+    img.src = c.img;
+    img.alt = c.title || "Gayatri";
+    img.loading = "lazy";
+    frame.appendChild(img);
+  } else {
+    frame.appendChild(el("span", "photo__ph", "photo<br>// add image"));
+  }
+  card.appendChild(frame);
+  card.appendChild(el("h3", "photo__cap", c.title || ""));
+  card.appendChild(el("p", "photo__txt", c.text || ""));
+  card.style.transitionDelay = (i % 3) * 60 + "ms";
+  g1.appendChild(card);
+});
+
+/* ---- section 2 ---- */
+$("#s2lead").textContent = SECTION_2.lead;
+const g2 = $("#s2grid");
+SECTION_2.colors.forEach(c => {
+  const s = el("article", "swatch");
+  const chip = el("div", "swatch__chip");
+  chip.style.background = c.hex;
+  const body = el("div", "swatch__body");
+  body.appendChild(el("h3", "swatch__name", c.name));
+  body.appendChild(el("div", "swatch__meta", (c.meta || "") + " · " + (c.hex || "")));
+  body.appendChild(el("p", "swatch__txt", c.text || ""));
+  s.appendChild(chip);
+  s.appendChild(body);
+  g2.appendChild(s);
+});
+
+/* ---- section 3 ---- */
+$("#s3lead").textContent = SECTION_3.lead;
+const g3 = $("#s3list");
+SECTION_3.eras.forEach(era => {
+  const box = el("div", "era reveal");
+  const head = el("div", "era__head");
+  head.appendChild(el("h3", "era__name", era.name));
+  head.appendChild(el("p", "era__note", era.note || ""));
+  box.appendChild(head);
+  era.songs.forEach((s, i) => {
+    const row = el("div", "song");
+    row.appendChild(el("span", "song__n", String(i + 1).padStart(2, "0")));
+    const right = el("div");
+    right.appendChild(el("div", "song__t", s.t));
+    if (s.m) right.appendChild(el("div", "song__m", s.m));
+    row.appendChild(right);
+    box.appendChild(row);
+  });
+  g3.appendChild(box);
+});
+
+/* ---- section 4 ---- */
+$("#s4lead").textContent = SECTION_4.lead;
+const chIndex = $("#chapters");
+const s4body = $("#s4body");
+SECTION_4.chapters.forEach((ch, i) => {
+  const a = el("a", "", String(i + 1).padStart(2, "0") + " · " + ch.title.split("—")[0].trim());
+  a.href = "#" + ch.id;
+  chIndex.appendChild(a);
+
+  const sec = el("article", "chapter reveal");
+  sec.id = ch.id;
+  const head = el("div", "chapter__head");
+  head.appendChild(el("span", "chapter__idx", "CH " + String(i + 1).padStart(2, "0")));
+  head.appendChild(el("h3", "chapter__title", ch.title));
+  if (ch.asm) head.appendChild(el("span", "chapter__asm", ch.asm));
+  sec.appendChild(head);
+  if (ch.intro) sec.appendChild(el("p", "chapter__intro", ch.intro));
+
+  const bub = el("div", "bubbles");
+  ch.bubbles.forEach(b => {
+    const bd = el("div", "bubble");
+    bd.appendChild(el("span", "bubble__k", b.k));
+    bd.appendChild(el("p", "bubble__t", b.t));
+    bub.appendChild(bd);
+  });
+  sec.appendChild(bub);
+  s4body.appendChild(sec);
+});
+
+/* ---- section 5 ---- */
+$("#s5lead").textContent = SECTION_5.lead;
+const g5 = $("#s5grid");
+SECTION_5.items.forEach((it, i) => {
+  const c = el("article", "learn");
+  c.appendChild(el("span", "learn__n", "LESSON " + String(i + 1).padStart(2, "0")));
+  c.appendChild(el("h3", "learn__t", it.title));
+  c.appendChild(el("p", "learn__x", it.text || ""));
+  g5.appendChild(c);
+});
+
+/* ---- section 6 ---- */
+$("#s6lead").textContent = SECTION_6.lead;
+const g6 = $("#s6grid");
+SECTION_6.poems.forEach(p => {
+  const card = el("article", "poem");
+  card.appendChild(el("h3", "poem__title", p.title || "Untitled"));
+  card.appendChild(el("div", "poem__date", p.date || ""));
+  if (p.body && p.body.trim()) {
+    card.appendChild(el("p", "poem__body", p.body));
+  } else {
+    card.appendChild(el("p", "poem__empty", "// paste your poem here (SECTION_6)"));
+  }
+  g6.appendChild(card);
+});
+
+/* ---- section 7 ---- */
+$("#s7lead").textContent = SECTION_7.lead;
+const g7 = $("#s7grid");
+SECTION_7.tracks.forEach((t, i) => {
+  const card = el("article", "track");
+  card.appendChild(el("span", "track__no", "TRACK " + String(i + 1).padStart(2, "0")));
+  card.appendChild(el("h3", "track__t", t.title || "Untitled"));
+  card.appendChild(el("p", "track__m", t.note || ""));
+  if (t.audio) {
+    const au = el("audio");
+    au.controls = true;
+    au.src = t.audio;
+    card.appendChild(au);
+  }
+  g7.appendChild(card);
+});
+
+/* ================= PETAL SHOWER ================= */
+(function petals() {
+  const cv = $("#petals");
+  const ctx = cv.getContext("2d");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W, H, list = [], target = 0, t0 = performance.now();
+
+  const COLORS = ["#e9a7b4", "#d97b93", "#f3c9c2", "#e3b3c8", "#f0b6a0", "#c9778c", "#f7d8d2"];
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth;
+    H = cv.clientHeight;
+    cv.width = W * dpr;
+    cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function make(initial) {
+    return {
+      x: Math.random() * W,
+      y: initial ? -Math.random() * H * 0.6 - 20 : -30 - Math.random() * 120,
+      w: 5 + Math.random() * 7,
+      h: 3 + Math.random() * 4,
+      vy: 0.5 + Math.random() * 1.5,
+      vx: -0.35 + Math.random() * 0.7,
+      rot: Math.random() * Math.PI * 2,
+      vr: (-0.6 + Math.random() * 1.2) * 0.02,
+      sway: Math.random() * Math.PI * 2,
+      swaySp: 0.008 + Math.random() * 0.018,
+      amp: 0.25 + Math.random() * 0.8,
+      c: COLORS[(Math.random() * COLORS.length) | 0],
+      a: 0.55 + Math.random() * 0.45
+    };
+  }
+
+  function frame(now) {
+    const t = (now - t0) / 1000;
+    target = t < 3.2 ? 90 : t < 6 ? 40 : 16;
+    while (list.length < target) list.push(make(t < 1));
+    if (list.length > target) list.length = target;
+
+    ctx.clearRect(0, 0, W, H);
+    for (const p of list) {
+      p.sway += p.swaySp;
+      p.x += p.vx + Math.sin(p.sway) * p.amp;
+      p.y += p.vy * (t < 3.2 ? 1.6 : 1);
+      p.rot += p.vr;
+      if (p.y > H + 30) {
+        p.y = -30 - Math.random() * 80;
+        p.x = Math.random() * W;
+      }
+      if (p.x < -40) p.x = W + 30;
+      if (p.x > W + 40) p.x = -30;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.a;
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.w, p.h, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+  if (reduce) {
+    target = 12;
+    for (let i = 0; i < 12; i++) {
+      const p = make(true);
+      p.y = Math.random() * H;
+      list.push(p);
+    }
+    for (const p of list) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.a * 0.8;
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.w, p.h, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    return;
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ================= MUSIC ================= */
+(function music() {
+  const audio = $("#bgm");
+  const btn = $("#musicBtn");
+  const icon = $("#musicIcon");
+  const box = $("#music");
+  const title = $("#musicTitle");
+  const hint = $("#musicHint");
+  const PLAY = '<path d="M8 5v14l11-7z"/>';
+  const PAUSE = '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+
+  title.textContent = MUSIC_TITLE;
+  audio.src = MUSIC_SRC;
+  audio.volume = MUSIC_VOLUME;
+
+  function paint(playing) {
+    icon.innerHTML = playing ? PAUSE : PLAY;
+    box.classList.toggle("playing", playing);
+    hint.textContent = playing ? "playing · tap to pause" : "tap to play";
+  }
+
+  function play() {
+    const p = audio.play();
+    if (p && p.catch) {
+      p.then(() => paint(true)).catch(() => {
+        paint(false);
+        hint.textContent = "tap to play";
+      });
+    } else {
+      paint(true);
+    }
+  }
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) play();
+    else { audio.pause(); paint(false); }
+  });
+
+  audio.addEventListener("play", () => paint(true));
+  audio.addEventListener("pause", () => paint(false));
+  audio.addEventListener("error", () => {
+    hint.textContent = "add " + MUSIC_SRC + " here";
+    paint(false);
+  });
+
+  /* autoplay: petals ke baad music */
+  setTimeout(play, 1400);
+
+  /* browsers autoplay block karte hain — pehle touch/click par phir try */
+  const once = () => {
+    if (audio.paused) play();
+    window.removeEventListener("pointerdown", once);
+    window.removeEventListener("keydown", once);
+    window.removeEventListener("scroll", once);
+  };
+  window.addEventListener("pointerdown", once, { passive: true });
+  window.addEventListener("keydown", once);
+  window.addEventListener("scroll", once, { passive: true });
+})();
+
+/* ================= REVEAL + NAV ================= */
+(function ui() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    items.forEach(n => n.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    items.forEach(n => io.observe(n));
+
+    /* fallback: agar observer kisi wajah se na chale */
+    const check = () => {
+      const vh = window.innerHeight || 800;
+      items.forEach(n => {
+        if (!n.classList.contains("in") && n.getBoundingClientRect().top < vh * 0.94) {
+          n.classList.add("in");
+        }
+      });
+    };
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    window.addEventListener("load", check);
+    check();
+  }
+
+  const links = Array.from(document.querySelectorAll("#navlinks a"));
+  const secs = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const spy = new IntersectionObserver((ents) => {
+    ents.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  secs.forEach(s => spy.observe(s));
+})();
+</script>
+</body>
+</html>
